@@ -64,7 +64,7 @@ const PostComponent = () => {
                 <Image source={post.Image} style={Style.ImagePost} />
               </View>
               {/* This div will be our Icons and Likes Parent Div */}
-              <View style={{flexDirection: 'row'}}>
+              <View style={{ flexDirection: 'row' }}>
                 {/* Icons Div */}
                 <View style={{ flex: 1, flexDirection: 'row', paddingRight: 5, paddingLeft: 14, paddingTop: 10 }}>
                   <FontAwesomeIcon icon={faHeart} style={{ color: 'white', marginRight: 20 }} size={25} />
@@ -73,6 +73,46 @@ const PostComponent = () => {
                 </View>
                 <View style={{ flex: 1, alignItems: 'flex-end', paddingRight: 14, justifyContent: 'center', paddingTop: 10 }}>
                   <FontAwesomeIcon icon={faBookmark} style={{ color: 'white', marginRight: 20 }} size={25} />
+                </View>
+              </View>
+              {/* Likes Div */}
+              <View>
+                <Text style={{ color: 'white', paddingLeft: 14, paddingTop: 5, fontWeight: 'bold' }}>
+                  {post.NumOfLikes} Likes
+                </Text>
+              </View>
+              {/* Post Description Div */}
+              <View style={{ flex: 1, flexDirection: 'row' }}>
+                <Text style={{ color: 'white', fontWeight: 'bold', paddingLeft: 14, paddingTop: 5, paddingRight: 5 }}>
+                  {post.Username}
+                </Text>
+                <Text style={{ color: 'white', paddingTop: 5 }}>
+                  {post.Description}
+                </Text>
+              </View>
+              <View>
+                {
+                  post.Comments.map((comment, idx) => {
+                    return (
+                      <View key={idx} style={{ flex: 1, flexDirection: 'row' }}>
+                        <Text style={{ color: 'white', fontWeight: 'bold', paddingLeft: 14, paddingTop: 5, paddingRight: 5 }}>
+                          {comment.UserWhoCommented}
+                        </Text>
+                        <Text style={{ color: 'white', paddingTop: 5 }}>
+                          {comment.UsersComment}
+                        </Text>
+                      </View>
+                    )
+                  })
+                }
+                {/* Add comment section for user */}
+                <View style={{flex: 1, flexDirection: 'row'}}>
+                  <Image source={footsaiah} style={{height: 30, width: 30, borderRadius: 50, marginTop: 10, marginLeft: 13}}/>
+                  <Text style={{color: 'gainsboro', paddingLeft: 14, alignSelf: 'center', paddingTop: 8}}>Add a comment...</Text>
+                </View>
+
+                <View>
+                  <Text style={{color: 'gainsboro', paddingLeft: 14, paddingTop: 6}}>12 hours ago</Text>
                 </View>
               </View>
 
