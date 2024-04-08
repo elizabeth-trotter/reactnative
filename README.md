@@ -2,4 +2,4 @@
 
 **Description:**
 
-Learning React Native by following Instagram clone lecture
+Learning React Native by following Instagram clone lecture. 
